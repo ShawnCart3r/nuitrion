@@ -1,0 +1,456 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(to bottom, rgba(240, 242, 245, 0.7), rgba(225, 228, 233, 0.7)),
+                url('/image/snow2.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+  }
+  
+  /* Main Container */
+  .landing-container {
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 4px solid rgba(70, 130, 180, 0.6);
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Logo */
+  .logo {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  /* Header Text */
+  .text-box {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .text-box h2 {
+    color: #4682B4;
+    font-size: 1.6rem;
+    text-transform: capitalize;
+    margin-bottom: 10px;
+  }
+  
+  .text-box p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+ /* Grid Section */
+.carousel-container {
+  position: relative;
+  max-width: 420px;
+  margin: 0 auto 40px;
+}
+
+.carousel-track-wrapper {
+  overflow: hidden;
+  border-radius: 10px;
+  position: relative;
+}
+.carousel-track {
+  display: flex;
+  transition: transform 0.3s ease;
+}
+
+.square {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(51, 51, 51, 0.6);
+  color: white;
+  border: none;
+  font-size: 16px;
+  padding: 6px 10px;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
+  line-height: 1;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.carousel-button:hover {
+  background-color: rgba(51, 51, 51, 0.85);
+}
+
+.carousel-button.prev {
+  left: 10px;
+}
+
+.carousel-button.next {
+  right: 10px;
+}
+
+.split-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid #000;
+  border-radius: 6px;
+  overflow: hidden;
+  animation: slideUpFade 0.5s ease-out;
+}
+
+.left, .right {
+  text-align: center;
+  font-weight: bold;
+  background: #f0f0f0;
+  cursor: pointer;
+  transition: background 0.2s;
+  padding: 0;
+  margin: 0;
+}
+
+.left:hover,
+.right:hover {
+  background-color: #ddd;
+}
+
+.left {
+  border-right: 1px solid #000;
+}
+
+.swipe-hint {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .swipe-hint {
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
+    animation: fadeOut 3s ease-out forwards;
+    animation-delay: 2s;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: auto;
+  padding: 30px 20px;
+  border-radius: 12px;
+  max-width: 800px;
+  width: 100%;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  position: relative;
+  animation: scaleFade 0.3s ease-out;
+}
+
+.close {
+  position: absolute;
+  right: 20px;
+  top: 12px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+}
+.close:hover {
+  color: #000;
+}
+
+.grid-8 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.grid-box {
+  text-align: center;
+}
+
+/* 🟢 UPDATED: These containers now auto-size based on image */
+.box-content,
+.third,
+.quad,
+.left,
+.right,
+.single-box {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  display: block;
+  overflow: hidden;
+  border-radius: 6px;
+  background: #fff;
+}
+
+/* 🟢 UPDATED: Image fills space without crop/stretch */
+.box-content img,
+.third img,
+.quad img,
+.left img,
+.right img,
+.single-box img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.three-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  border: 1px solid #000;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.three-box-alt {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 0;
+  border: 1px solid #000;
+  border-radius: 6px;
+  overflow: hidden;
+  animation: slideUpFade 0.5s ease-out;
+}
+
+.third {
+  text-align: center;
+  font-weight: bold;
+  background: #f0f0f0;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid #000;
+  border-right: 1px solid #000;
+}
+
+.third:hover {
+  background-color: #ddd;
+}
+.third:nth-child(2) {
+  border-right: none;
+}
+.third.full {
+  grid-column: span 2;
+  border-right: none;
+}
+
+.single-box {
+  background: #f0f0f0;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  animation: slideUpFade 0.5s ease-out;
+}
+.single-box:hover {
+  background-color: #ddd;
+}
+
+.four-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  border: 1px solid #000;
+  border-radius: 6px;
+  overflow: hidden;
+  animation: slideUpFade 0.5s ease-out;
+}
+
+.quad {
+  font-weight: bold;
+  background: #f0f0f0;
+  cursor: pointer;
+  border-bottom: 1px solid #000;
+  border-right: 1px solid #000;
+  transition: background-color 0.2s ease;
+}
+.quad:nth-child(2n) {
+  border-right: none;
+}
+.quad:nth-child(n+3) {
+  border-bottom: none;
+}
+.quad:hover {
+  background-color: #ddd;
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    padding: 20px 15px;
+  }
+
+  .grid-8 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .box-content {
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-8 {
+    grid-template-columns: 1fr;
+  }
+
+  .box-content {
+    height: auto;
+  }
+
+  .close {
+    font-size: 24px;
+    top: 10px;
+    right: 15px;
+  }
+
+  .modal-content p {
+    margin-top: 40px;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleFade {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideUpFade {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+
+  /* Gift Card Section */
+  .gift-card-section {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    padding: 30px 20px;
+    background: rgba(255, 255, 255, 0.95);
+    border-top: 2px solid rgba(70, 130, 180, 0.2);
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .gift-card-section h2 {
+    font-size: 1.6rem;
+    color: #4682B4;
+    margin-bottom: 15px;
+  }
+  
+  .gift-card-image {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    object-fit: contain;
+  }
+
+  .race-calendar-section {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  padding: 30px 20px;
+  background: rgba(255, 255, 255, 0.95);
+  border-top: 2px solid rgba(70, 130, 180, 0.2);
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.race-calendar-section h2 {
+  font-size: 1.6rem;
+  color: #4682B4;
+  margin-bottom: 15px;
+}
+
+.race-calendar-image {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  object-fit: contain;
+}
+  
+  /* Responsive Text Scaling */
+  @media (min-width: 768px) {
+    .text-box h2 {
+      font-size: 2rem;
+    }
+  
+    .text-box p {
+      font-size: 1.1rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .text-box h2 {
+      font-size: 2.2rem;
+    }
+  
+    .text-box p {
+      font-size: 1.2rem;
+    }
+  }
+  

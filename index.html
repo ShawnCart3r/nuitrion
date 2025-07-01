@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+  <body>
+  <div class="landing-container">
+
+    <!-- Logo -->
+    <div class="logo-container">
+      <img src="" alt="Logo" class="logo">
+    </div>
+
+    <!-- Introduction Section -->
+    <div class="text-box">
+      <h2>Your Title Here</h2>
+      <p>Your introduction or description text goes here.</p>
+    </div>
+
+  <div class="carousel-container">
+  <!-- Previous Button -->
+  <button class="carousel-button prev" onclick="prevSlide()">&#10094;</button>
+
+  <!-- Track Wrapper -->
+  <div class="carousel-track-wrapper">
+    <div class="carousel-track">
+
+      <!-- Slide 1: Split left/right- GU -->
+      <div class="square">
+        <div class="split-box">
+          <div class="left" onclick="openModal('leftModal')"><img src="/image/chews.jpeg"></div>
+          <div class="right" onclick="openModal('rightModal')"><img src="/image/gel.jpeg"></div>
+        </div>
+      </div>
+
+      <!-- Slide 2: 3 images with modals-Honey stingers -->
+     <div class="square">
+  <div class="three-box-alt">
+    <div class="third" onclick="openModal('imgModal1')">
+      <img src="/image/honey-gel.jpeg" alt="Image 1" />
+    </div>
+    <div class="third" onclick="openModal('imgModal2')">
+      <img src="/image/honey-gel.jpeg" alt="Image 2" />
+    </div>
+    <div class="third full" onclick="openModal('imgModal3')">
+      <img src="/image/" alt="Image 3" />
+    </div>
+  </div>
+</div>
+
+      <!-- Slide 3-Jelly -->
+      <div class="square">
+  <div class="single-box" onclick="openModal('imgModalSingle')">
+    <img src="/image/">
+  </div>
+</div>
+      <!-- Slide 4-ontap -->
+      <div class="square">
+      <div class="square" onclick="openModal('quadModal')">
+  <div class="four-box">
+    <div class="quad"><img src="/image/ontap.jpeg"></div>
+    <div class="quad"><img src="/image/ontap.jpeg"></div>
+    <div class="quad"><img src="/image/ontap.jpeg"></div>
+    <div class="quad"><img src="/image/ontap.jpeg"></div>
+  </div>
+</div>
+      </div>
+
+      <!-- Slide 5 -Nuun -->
+      <div class="square">
+        <div class="single-box" onclick="openModal('imgModalSingle')">
+   <img src="/image/nuun.jpeg">
+  </div>
+      </div>
+
+      <!-- Slide 6 -M-->
+      <div class="square">
+       <div class="split-box">
+          <div class="left" onclick="openModal('leftModal')"><img src="/image/"></div>
+          <div class="right" onclick="openModal('rightModal')"><img src="/image/"></div>
+        </div>
+      </div>
+
+      <!-- Slide 7-Salt -->
+      <div class="square">
+        <div class="single-box" onclick="openModal('imgModalSingle')">
+    <img src="/image/salt.jpeg">
+  </div>
+      </div>
+      <!-- Slide 8 -tail-->
+      <div class="square">
+       <div class="split-box">
+          <div class="left" onclick="openModal('leftModal')"><img src="/image/tailwind.jpeg"></div>
+          <div class="right" onclick="openModal('rightModal')"><img src="/image/tailiwndpacts.jpeg"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Next Button -->
+  <button class="carousel-button next" onclick="nextSlide()">&#10095;</button>
+
+  <!-- 👇 Swipe Hint (Mobile Only) -->
+  <div class="swipe-hint">⬅ Swipe ➡</div>
+</div>
+<!-- Gu-->
+    <!-- Left Modal -->
+    <div class="modal" id="leftModal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('leftModal')">&times;</span>
+        <p>This is your paragraph of information that goes above the boxes.</p>
+        <div class="grid-8">
+          <div class="grid-box"><div class="box-content"><img src="/image/gel.jpeg"></div><span>Strawberry</span></div>
+           <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Blueberry Pomegranate</span></div>
+         <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Fruitpunch</span></div>
+            <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Orange</span></div>
+          <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Water Melon</span></div>
+         <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Lemon</span></div>
+          <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Salted Lime</span></div>
+           
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Modal -->
+    <div class="modal" id="rightModal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('rightModal')">&times;</span>
+        <p>This is the RIGHT modal paragraph content.</p>
+        <div class="grid-8">
+           <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Chocolate Outrage</span></div>
+         <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Tri-Berry</span></div>
+           <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Vanilla Bean</span></div>
+            <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Strawberry Banana</span></div>
+          <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Salted Caramel</span></div>
+            <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Birthday Cake</span></div>
+            <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Campfire S'mores</span></div>
+           <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Lemon Sublime</span></div>
+        </div>
+      </div>
+    </div>
+    <!--honey stinger-->
+    <!-- Modal for Image 1 -->
+<div class="modal" id="imgModal1">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('imgModal1')">&times;</span>
+    <p>This is content for Image 1.</p>
+    <div class="grid-8">
+       <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+       <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+       <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal for Image 2 -->
+<div class="modal" id="imgModal2">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('imgModal2')">&times;</span>
+    <p>This is content for Image 2.</p>
+    <div class="grid-8">
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+       <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+       <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+    </div>
+  </div>
+</div>
+<!--jelly-->
+<div class="modal" id="imgModalSingle">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('imgModalSingle')">&times;</span>
+    <p>This is the centered box modal content.</p>
+    <div class="grid-8">
+       <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+     <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+      <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+    </div>
+  </div>
+</div>
+<!--ontap-->
+<div class="modal" id="quadModal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('quadModal')">&times;</span>
+    <p>This is the modal for Square 4.</p>
+    <div class="grid-8">
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+       <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+       <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+    </div>
+  </div>
+</div>
+
+<!--Nuun-->
+<div class="modal" id="imgModalSingle">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('imgModalSingle')">&times;</span>
+    <p>This is the centered box modal content.</p>
+    <div class="grid-8">
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+       <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+       <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+    </div>
+  </div>
+</div>
+<!--M-->
+ <!-- Left Modal -->
+    <div class="modal" id="leftModal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('leftModal')">&times;</span>
+        <p>This is your paragraph of information that goes above the boxes.</p>
+        <div class="grid-8">
+            <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+       <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+       <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Modal -->
+    <div class="modal" id="rightModal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('rightModal')">&times;</span>
+        <p>This is the RIGHT modal paragraph content.</p>
+        <div class="grid-8">
+          <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+       <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+       <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        </div>
+      </div>
+    </div>
+<!--Salt-->
+<div class="modal" id="imgModalSingle">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('imgModalSingle')">&times;</span>
+    <p>This is the centered box modal content.</p>
+    <div class="grid-8">
+       <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+       <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+       <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal for Image 3 -->
+<div class="modal" id="imgModal3">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('imgModal3')">&times;</span>
+    <p>This is content for Image 3.</p>
+    <div class="grid-8">
+       <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+       <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+        <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+       <div class="grid-box"><div class="box-content"><img src="/image/"></div><span>Title 1</span></div>
+    </div>
+  </div>
+</div>
+    
+
+    <!-- Gift Card Section -->
+    <div class="gift-wrapper">
+      <div class="gift-card-section">
+        <h2>Gift Card Section Title</h2>
+        <img src="" alt="Gift Card" class="gift-card-image">
+      </div>
+    </div>
+  <div class="race-wrapper">
+    <div class="race-calender-section">
+      <h2></h2>
+      <img src="/image/">
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
