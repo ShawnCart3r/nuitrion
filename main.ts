@@ -50,11 +50,11 @@ document.addEventListener("DOMContentLoaded", () => {
   (window as any).nextSlide = nextSlide;
   (window as any).prevSlide = prevSlide;
 
-  // --- Swipe Support ---
+  // --- Swipe Support (Touch Devices Only) ---
+  const track = document.querySelector(".carousel-track") as HTMLElement | null;
+  const swipeHint = document.getElementById("swipeHint") as HTMLElement | null;
   let touchStartX = 0;
   let touchEndX = 0;
-
-  const track = document.querySelector(".carousel-track");
 
   function handleSwipe(): void {
     if (touchEndX < touchStartX - 50) {
@@ -65,7 +65,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  if (track) {
+  // Only enable swipe and hint for touch-capable tablet or smaller devices
+  const isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+  const isTabletOrSmaller = window.innerWidth <= 1024;
+
+  if (track && isTouchDevice && isTabletOrSmaller) {
     track.addEventListener("touchstart", (e: TouchEvent) => {
       touchStartX = e.changedTouches[0].screenX;
     });
@@ -74,9 +78,15 @@ document.addEventListener("DOMContentLoaded", () => {
       touchEndX = e.changedTouches[0].screenX;
       handleSwipe();
     });
+
+    // Show swipe hint text
+    if (swipeHint) {
+      swipeHint.classList.add("show");
+    }
   }
 });
 
+// --- Aspect Ratio Utility for Images ---
 window.addEventListener("load", () => {
   const images: NodeListOf<HTMLImageElement> = document.querySelectorAll(
     ".box-content img, .third img, .quad img, .left img, .right img, .single-box img"

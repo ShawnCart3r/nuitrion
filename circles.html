@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Join Us - TheraConnect</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+  font-family: 'Inter', sans-serif;
+  background-color: #fafafe;
+  margin: 0;
+  padding: 60px 20px;
+  color: #333;
+}
+
+h2.section-title {
+  text-align: center;
+  font-size: 2.6rem;
+  color: #7c4bd2;
+  margin-bottom: 60px;
+  font-weight: 600;
+}
+
+.card-row {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: nowrap;        /* force one row */
+  overflow: hidden;         /* hide scrollbars */
+  max-width: 100%;
+}
+
+.card-wrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.card {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #eee4f8;
+  box-shadow: 0 10px 30px rgba(124, 75, 210, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 14px 12px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(124, 75, 210, 0.15);
+}
+
+.card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ddd;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #7c4bd2, #d06fa5);
+  border-radius: 20px;
+  margin: 4px 0;
+}
+
+.badge a {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.card h3 {
+  font-size: 1rem;
+  color: #5b3d93;
+  margin: 2px 0;
+  line-height: 1.2;
+  max-width: 90%;
+  word-wrap: break-word;
+  cursor: pointer;
+}
+
+/* Dropdown box appears below the circle */
+.dropdown {
+  position: absolute;
+  top: 100%;
+  margin-top: 10px;
+  width: 220px;
+  background: #fff;
+  border: 2px solid #eee4f8;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.dropdown p {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Reveal dropdown on hover */
+.card-wrapper:hover .dropdown {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+  </style>
+</head>
+<body>
+
+  <h2 class="section-title">Join Us</h2>
+
+  <div class="card-row">
+    <div class="card-wrapper">
+      <div class="card">
+        <img src="https://theraconnect.net/wp-content/uploads/2025/07/Male-MCP-with-female-client-scaled-1.webp" alt="Therapy Image" />
+        <span class="badge"><a href="https://theraconnect.net/client-registration/">As A Client</a></span>
+        <h3>Individual Therapy</h3>
+      </div>
+      <div class="dropdown">
+        <p>Get mental health professionals tailored to your needs.</p>
+      </div>
+    </div>
+
+    <div class="card-wrapper">
+      <div class="card">
+        <img src="https://theraconnect.net/wp-content/uploads/2025/07/MCP-wiith-client-hands-768x421-1.webp" alt="Professional Image" />
+        <span class="badge"><a href="https://theraconnect.net/patient-connect-program/">As A Professional</a></span>
+        <h3>Experience</h3>
+      </div>
+      <div class="dropdown">
+        <p>Expand your reach and connect with clients.</p>
+      </div>
+    </div>
+
+    <div class="card-wrapper">
+      <div class="card">
+        <img src="https://theraconnect.net/wp-content/uploads/2025/07/Group-Therapy-Mix-of-People-scaled-1.webp" alt="Group Therapy" />
+        <span class="badge"><a href="https://theraconnect.net/qualifactions/">Check Now</a></span>
+        <h3>Qualifications?</h3>
+      </div>
+      <div class="dropdown">
+        <p>Our professionals are qualified and experienced.</p>
+      </div>
+    </div>
+
+    <div class="card-wrapper">
+      <div class="card">
+        <img src="https://theraconnect.net/wp-content/uploads/2025/07/MCP-Speaks-with-Man-with-fingers-in-his-ear-funny-scaled-1.webp" alt="Doubt Help" />
+        <span class="badge"><a href="https://theraconnect.net/646-2/">Read The Reviews</a></span>
+        <h3>Have Doubts?</h3>
+      </div>
+      <div class="dropdown">
+        <p>Think therapy won’t help? Read client feedback.</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -44,10 +44,11 @@ document.addEventListener("DOMContentLoaded", function () {
     window.closeModal = closeModal;
     window.nextSlide = nextSlide;
     window.prevSlide = prevSlide;
-    // --- Swipe Support ---
+    // --- Swipe Support (Touch Devices Only) ---
+    var track = document.querySelector(".carousel-track");
+    var swipeHint = document.getElementById("swipeHint");
     var touchStartX = 0;
     var touchEndX = 0;
-    var track = document.querySelector(".carousel-track");
     function handleSwipe() {
         if (touchEndX < touchStartX - 50) {
             nextSlide();
@@ -56,7 +57,10 @@ document.addEventListener("DOMContentLoaded", function () {
             prevSlide();
         }
     }
-    if (track) {
+    // Only enable swipe and hint for touch-capable tablet or smaller devices
+    var isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+    var isTabletOrSmaller = window.innerWidth <= 1024;
+    if (track && isTouchDevice && isTabletOrSmaller) {
         track.addEventListener("touchstart", function (e) {
             touchStartX = e.changedTouches[0].screenX;
         });
@@ -64,8 +68,13 @@ document.addEventListener("DOMContentLoaded", function () {
             touchEndX = e.changedTouches[0].screenX;
             handleSwipe();
         });
+        // Show swipe hint text
+        if (swipeHint) {
+            swipeHint.classList.add("show");
+        }
     }
 });
+// --- Aspect Ratio Utility for Images ---
 window.addEventListener("load", function () {
     var images = document.querySelectorAll(".box-content img, .third img, .quad img, .left img, .right img, .single-box img");
     images.forEach(function (img) {
