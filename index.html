@@ -19,61 +19,156 @@
       <h2>Your Title Here</h2>
       <p>Your introduction or description text goes here.</p>
     </div>
- <div class="carousel-nav-outer">
+  <div class="reminder-banner">
+  <p> Click any image below to explore more options.</p>
+</div>
+
+<div class="carousel-nav-outer">
+  
   <button class="carousel-button prev" onclick="prevSlide()">&#10094;</button>
-<div class="carousel-wrapper">
-  <div class="carousel-track" id="carouselTrack">
-    
- 
-    <div class="carousel-box" style="background-color: red;" onclick="openSplitBox(1)"><img src="/image/gel.jpeg"></div>
-    <div class="carousel-box" style="background-color: yellow;" onclick="openSplitBox(2)"><img src=""></div>
-    <div class="carousel-box" style="background-color: green;" onclick="openSplitBox(3)"><img src=""></div>
-    <div class="carousel-box" style="background-color: blue;" onclick="openSplitBox(4)"><img src=""></div>
-    <div class="carousel-box" style="background-color: purple;" onclick="openSplitBox(5)"><img src=""></div>
-    <div class="carousel-box" style="background-color: black;" onclick="openSplitBox(6)"><img src=""></div>
-    <div class="carousel-box" style="background-color: orange;" onclick="openSplitBox(7)"><img src=""></div>
 
+  <div class="carousel-wrapper">
+    <div class="carousel-track" id="carouselTrack">
+      <div class="carousel-box" style="background-color: red;" onclick="openSplitBox(1)">
+        <img src="/image/gel.jpeg" />
+      </div>
+      <div class="carousel-box" style="background-color: yellow;" onclick="openSplitBox(2)">
+        <img src="/image/stinger-gel.jpeg" />
+      </div>
+      <div class="carousel-box" style="background-color: green;" onclick="openSplitBox(3)">
+        <img src="/image/vermont1.jpeg" />
+      </div>
+      <div class="carousel-box" style="background-color: blue;" onclick="openSplitBox(4)">
+        <img src="/image/jelly.jpeg" />
+      </div>
+      <div class="carousel-box" style="background-color: purple;" onclick="openSplitBox(5)">
+        <img src="/image/mortain1.jpeg" />
+      </div>
+      <div class="carousel-box" style="background-color: black;" onclick="openSplitBox(6)">
+        <img src="/image/tailwind.jpeg" />
+      </div>
+      <div class="carousel-box" style="background-color: orange;" onclick="openSplitBox(7)">
+        <img src="/image/salttabs.jpeg" />
+      </div>
+    </div>
   </div>
-</div>
+
   <button class="carousel-button next" onclick="nextSlide()">&#10095;</button>
-  
- </div>   
-
-
-<!-- Split Modal <div class="carousel-nav">
-  <button class="carousel-button" onclick="prevSlide()">&#8592;</button>
-  <button class="carousel-button" onclick="nextSlide()">&#8594;</button>
-</div> -->
-<div id="splitBox" class="split-box-modal">
-  <div class="split-box-inner">
-    <div class="half left-half" onclick="openSideModal('left')">Left Side</div>
-    <div class="divider"></div>
-    <div class="half right-half" onclick="openSideModal('right')">Right Side</div>
-  </div>
-  <button class="close-btn" onclick="closeSplitBox()">✕</button>
 </div>
 
-<!-- Side Modal -->
-<div id="sideModal" class="side-modal">
-  <div class="side-modal-content">
-    <p id="sideModalText">...</p>
-    <button class="close-btn dark" onclick="closeSideModal()">✕</button>
+<!-- 🔁 Split Modals for each box -->
+<div id="splitModalsContainer">
+  <!-- Modal 1: GU -->
+  <div id="splitBox1" class="split-box-modal">
+    <div class="split-box-inner">
+      <div class="half left-half" onclick="openSideModal('left', 1)">GU Chews</div>
+      <div class="divider"></div>
+      <div class="half right-half" onclick="openSideModal('right', 1)">GU Gels</div>
+    </div>
+    <button class="close-btn" onclick="closeAllSplitBoxes()">✕</button>
   </div>
+
+  <!-- Modal 2: Honey Stingers -->
+  <div id="splitBox2" class="split-box-modal">
+    <div class="split-box-inner">
+      <div class="half left-half" onclick="openSideModal('left', 2)">Stinger Gels</div>
+      <div class="divider"></div>
+      <div class="half right-half" onclick="openSideModal('right', 2)">Stinger Waffles</div>
+    </div>
+   <button class="close-btn" onclick="closeAllSplitBoxes()">✕</button>
+  </div>
+
+  <!-- Modal 3: Vermont -->
+  <div id="splitBox3" class="split-box-modal">
+    <div class="split-box-inner">
+      <div class="half left-half" onclick="openSideModal('left', 3)">Vermont Tap Left</div>
+      <div class="divider"></div>
+      <div class="half right-half" onclick="openSideModal('right', 3)">Vermont Tap Right</div>
+    </div>
+    <button class="close-btn" onclick="closeAllSplitBoxes()">✕</button>
+  </div>
+
+  <!-- Modal 4: Jelly (Single Box) -->
+  <div id="splitBox4" class="split-box-modal">
+    <div class="split-box-inner">
+      <div class="half left-half" style="width: 100%;" onclick="openSideModal('left', 4)">Jelly Overview</div>
+    </div>
+  <button class="close-btn" onclick="closeAllSplitBoxes()">✕</button>
+  </div>
+
+  <!-- Modal 5: Mortain (Two sides) -->
+  <div id="splitBox5" class="split-box-modal">
+    <div class="split-box-inner">
+      <div class="half left-half" onclick="openSideModal('left', 5)">Mortain Small</div>
+      <div class="divider"></div>
+      <div class="half right-half" onclick="openSideModal('right', 5)">Mortain Large</div>
+    </div>
+    <button class="close-btn" onclick="closeAllSplitBoxes()">✕</button>
+  </div>
+
+  <!-- Modal 6: Tailwind -->
+  <div id="splitBox6" class="split-box-modal">
+    <div class="split-box-inner">
+      <div class="half left-half" onclick="openSideModal('left', 6)">Tailwind Small</div>
+      <div class="divider"></div>
+      <div class="half right-half" onclick="openSideModal('right', 6)">Tailwind Big</div>
+    </div>
+    <button class="close-btn" onclick="closeAllSplitBoxes()">✕</button>
+  </div>
+
+  <!-- Modal 7: Salt Tabs -->
+  <div id="splitBox7" class="split-box-modal">
+    <div class="split-box-inner">
+      <div class="half left-half" style="width: 100%;" onclick="openSideModal('left', 7)">Salt Tabs</div>
+    </div>
+    <button class="close-btn" onclick="closeAllSplitBoxes()">✕</button>
+  </div>
+</div>
+
+<div id="thirdModalsContainer">
+
+  <!-- GU -->
+  <div id="thirdModal-1-left" class="third-modal"><div class="content">GU Chews Content <button onclick="closeThirdModal('thirdModal-1-left')">✕</button></div></div>
+  <div id="thirdModal-1-right" class="third-modal"><div class="content">GU Gels Content <button onclick="closeThirdModal('thirdModal-1-right')">✕</button></div></div>
+
+  <!-- Honey Stingers -->
+  <div id="thirdModal-2-left" class="third-modal"><div class="content">Stinger Gels Content <button onclick="closeThirdModal('thirdModal-2-left')">✕</button></div></div>
+  <div id="thirdModal-2-right" class="third-modal"><div class="content">Stinger Waffles Content</div><button onclick="closeThirdModal('thirdModal-2-right')">✕</button></div>
+
+  <!-- Vermont -->
+  <div id="thirdModal-3-left" class="third-modal"><div class="content">Vermont Tap Left Content <button onclick="closeThirdModal('thirdModal-3-left')">✕</button></div></div>
+  <div id="thirdModal-3-right" class="third-modal"><div class="content">Vermont Tap Right Content <button onclick="closeThirdModal('thirdModal-3-right')">✕</button></div></div>
+
+  <!-- Jelly -->
+  <div id="thirdModal-4-left" class="third-modal"><div class="content">Jelly Overview Content <button onclick="closeThirdModal('thirdModal-4-left')">✕</button></div></div>
+
+  <!-- Mortain -->
+    <div id="thirdModal-5-left" class="third-modal"><div class="content">Mortain Small Content <button onclick="closeThirdModal('thirdModal-5-left')">✕</button></div></div>
+
+  <div id="thirdModal-5-right" class="third-modal"><div class="content">Mortain Large Content <button onclick="closeThirdModal('thirdModal-5-right')">✕</button></div></div>
+
+  <!-- Tailwind -->
+  <div id="thirdModal-6-left" class="third-modal"><div class="content">Tailwind Small Content <button onclick="closeThirdModal('thirdModal-6-left')">✕</button> </div></div>
+  <div id="thirdModal-6-right" class="third-modal"><div class="content">Tailwind Big Content <button onclick="closeThirdModal('thirdModal-6-right')">✕</button> </div></div>
+
+  <!-- Salt Tabs -->
+  <div id="thirdModal-7-left" class="third-modal"><div class="content">Salt Tabs Overview <button onclick="closeThirdModal('thirdModal-7-left')">✕</button></div></div>
+
 </div>
   
 
-    <!-- Gift Card Section -->
+<!--Calendar-->
+<div class="section-wrapper alt">
+  <div class="section-card">
+    <h2>Race Calendar</h2>
+   <a href="https://racecalender.netlify.app/" target="_blank"><img src="/image/race-tracker.png" alt="Race Calendar" class="calendar-image" /></a>
+  </div>
+</div>
+  <!-- Gift Card Section -->
   <div class="section-wrapper">
   <div class="section-card">
     <h2>Gift Card</h2>
     <img src="/image/giftcard - Copy.jpg" alt="Gift Card" class="gift-card-image" />
-  </div>
-</div>
-
-<div class="section-wrapper alt">
-  <div class="section-card">
-    <h2>Race Calendar</h2>
-   <img src="/image/race-tracker.png" alt="Race Calendar" class="calendar-image" />
   </div>
 </div>
   </div>
