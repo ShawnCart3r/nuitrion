@@ -1,109 +1,63 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // --- Modal Functions ---
-  function openModal(id: string): void {
-    const modal = document.getElementById(id);
-    if (modal) modal.style.display = "block";
-  }
+  const splitBox = document.getElementById("splitBox") as HTMLElement | null;
+  const sideModal = document.getElementById("sideModal") as HTMLElement | null;
+  const sideModalText = document.getElementById("sideModalText") as HTMLElement | null;
+  const carouselTrack = document.getElementById("carouselTrack") as HTMLElement | null;
 
-  function closeModal(id: string): void {
-    const modal = document.getElementById(id);
-    if (modal) modal.style.display = "none";
-  }
-
-  // Close modal when clicking outside of it
-  window.onclick = function (event: MouseEvent): void {
-    const modals = document.querySelectorAll(".modal");
-    modals.forEach((modal) => {
-      if (event.target === modal) {
-        (modal as HTMLElement).style.display = "none";
-      }
-    });
-  };
-
-  // --- Carousel Functions ---
   let currentSlide = 0;
+  const totalSlides = 7;
 
-  function updateCarousel(): void {
-    const track = document.querySelector(".carousel-track") as HTMLElement;
-    const slides = document.querySelectorAll(".square");
-    if (track) {
-      const offset = -currentSlide * 100;
-      track.style.transform = `translateX(${offset}%)`;
+  // === Modal Logic ===
+  function openSplitBox(index: number): void {
+    if (splitBox) {
+      splitBox.classList.add("active");
     }
   }
 
-  function nextSlide(): void {
-    const slides = document.querySelectorAll(".square");
-    currentSlide = (currentSlide + 1) % slides.length;
-    updateCarousel();
+  function closeSplitBox(): void {
+    if (splitBox) {
+      splitBox.classList.remove("active");
+    }
   }
 
-  function prevSlide(): void {
-    const slides = document.querySelectorAll(".square");
-    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-    updateCarousel();
+  function openSideModal(side: "left" | "right"): void {
+    if (sideModal && sideModalText) {
+      sideModalText.textContent =
+        side === "left"
+          ? "You clicked the LEFT side. Insert your left-side content here."
+          : "You clicked the RIGHT side. Insert your right-side content here.";
+      sideModal.classList.add("active");
+    }
   }
 
-  // --- Make Functions Available to HTML ---
-  (window as any).openModal = openModal;
-  (window as any).closeModal = closeModal;
+  function closeSideModal(): void {
+    if (sideModal) {
+      sideModal.classList.remove("active");
+    }
+  }
+
+  // === Carousel Logic ===
+  function updateCarousel(): void {
+    if (carouselTrack) {
+      carouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+  }
+
+ function nextSlide(): void {
+  currentSlide = (currentSlide + 1) % totalSlides;
+  updateCarousel();
+}
+
+function prevSlide(): void {
+  currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+  updateCarousel();
+}
+
+  // === Expose globally for HTML inline onclicks ===
+  (window as any).openSplitBox = openSplitBox;
+  (window as any).closeSplitBox = closeSplitBox;
+  (window as any).openSideModal = openSideModal;
+  (window as any).closeSideModal = closeSideModal;
   (window as any).nextSlide = nextSlide;
   (window as any).prevSlide = prevSlide;
-
-  // --- Swipe Support (Touch Devices Only) ---
-  const track = document.querySelector(".carousel-track") as HTMLElement | null;
-  const swipeHint = document.getElementById("swipeHint") as HTMLElement | null;
-  let touchStartX = 0;
-  let touchEndX = 0;
-
-  function handleSwipe(): void {
-    if (touchEndX < touchStartX - 50) {
-      nextSlide();
-    }
-    if (touchEndX > touchStartX + 50) {
-      prevSlide();
-    }
-  }
-
-  // Only enable swipe and hint for touch-capable tablet or smaller devices
-  const isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
-  const isTabletOrSmaller = window.innerWidth <= 1024;
-
-  if (track && isTouchDevice && isTabletOrSmaller) {
-    track.addEventListener("touchstart", (e: TouchEvent) => {
-      touchStartX = e.changedTouches[0].screenX;
-    });
-
-    track.addEventListener("touchend", (e: TouchEvent) => {
-      touchEndX = e.changedTouches[0].screenX;
-      handleSwipe();
-    });
-
-    // Show swipe hint text
-    if (swipeHint) {
-      swipeHint.classList.add("show");
-    }
-  }
-});
-
-// --- Aspect Ratio Utility for Images ---
-window.addEventListener("load", () => {
-  const images: NodeListOf<HTMLImageElement> = document.querySelectorAll(
-    ".box-content img, .third img, .quad img, .left img, .right img, .single-box img"
-  );
-
-  images.forEach((img: HTMLImageElement) => {
-    const applyAspectRatio = () => {
-      const parent = img.parentElement as HTMLElement | null;
-      if (parent && img.naturalWidth && img.naturalHeight) {
-        parent.style.aspectRatio = `${img.naturalWidth} / ${img.naturalHeight}`;
-      }
-    };
-
-    if (img.complete) {
-      applyAspectRatio();
-    } else {
-      img.onload = applyAspectRatio;
-    }
-  });
 });

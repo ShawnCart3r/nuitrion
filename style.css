@@ -1,349 +1,392 @@
-/* === Global Reset === */
-*, *::before, *::after {
+/* =======================
+🌐 Global Reset & Root
+======================= */
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* === Root Settings === */
 :root {
-  --primary-color: #3b65c4;
-  --accent-color: #2d4fb2;
-  --bg-light: #fafafa;
-  --bg-white: #ffffff;
-  --text-dark: #1f2d3d;
-  --text-muted: #445;
-  --highlight-today: #f7941d;
-  --highlight-weekend: #4a90e2;
-  --highlight-weekday: #9b59b6;
-  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.1);
-  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 18px 45px rgba(0, 0, 0, 0.12);
+  --primary-color: #365ad9;
+  --accent-color: #4d8aff;
+  --bg-white: #fff;
+  --bg-light: #f4f7fc;
+  --text-dark: #1e1f25;
+  --text-muted: #667085;
+  --shadow-md: 0 12px 30px rgba(0, 0, 0, 0.07);
+  --radius-lg: 18px;
+  --transition: all 0.3s ease-in-out;
+  --section-spacing: 60px;
+  --section-spacing-mobile: 40px;
 }
 
-/* === Base === */
-body, html {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  background: linear-gradient(to bottom, rgba(250, 251, 253, 0.96), rgba(225, 230, 240, 0.94)),
-              url('/image/snow2.jpg') no-repeat center center fixed;
-  background-size: cover;
+/* =======================
+🧱 Base Styles
+======================= */
+html,
+body {
+  font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+  background: linear-gradient(to bottom, #fdfbfb, #ebedee);
   color: var(--text-dark);
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
   padding: 20px;
+  line-height: 1.6;
   scroll-behavior: smooth;
 }
 
-/* === Container === */
-.landing-container {
-  max-width: 1100px;
+/* =======================
+🖼️ Image Styling
+======================= */
+img {
+  display: block;
   width: 100%;
-  padding: 50px 40px;
+  height: auto;
+  border-radius: var(--radius-lg);
+  transition: transform 0.3s ease;
+}
+
+img:hover {
+  transform: scale(1.03);
+}
+
+/* =======================
+🏠 Main Container
+======================= */
+.landing-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px;
   background: var(--bg-white);
-  border-radius: 20px;
-  box-shadow: var(--shadow-lg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  animation: fadeIn 0.6s ease;
   display: flex;
   flex-direction: column;
-  gap: 48px;
-  border: 1px solid #dce3ef;
-  transition: all 0.3s ease-in-out;
+  gap: var(--section-spacing);
 }
 
-/* === Logo === */
-.logo {
-  display: block;
-  max-width: 180px;
-  margin: 0 auto 20px;
-}
-
-/* === Text Box === */
-.text-box {
+/* =======================
+🖋️ Logo
+======================= */
+.logo-container {
   text-align: center;
 }
-.text-box h2 {
-  font-size: 2.6rem;
-  color: #23408e;
-  margin-bottom: 14px;
-  font-weight: 700;
-  border-bottom: 3px solid #dbe2f0;
-  display: inline-block;
-  padding-bottom: 10px;
+
+.logo {
+  max-width: 180px;
+  margin: 0 auto;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.05));
 }
+
+/* =======================
+📄 Text Section
+======================= */
+.text-box {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.text-box h2 {
+  font-size: 2.4rem;
+  color: var(--primary-color);
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
 .text-box p {
-  font-size: 1.25rem;
-  line-height: 1.9;
+  font-size: 1.15rem;
   color: var(--text-muted);
   max-width: 720px;
   margin: 0 auto;
 }
 
-/* === Carousel === */
-.carousel-container {
+/* =======================
+🎠 Carousel: Single-Slide Slider
+======================= */
+.carousel-nav-outer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  max-width: 100%;
+  margin: 0 auto 40px;
   position: relative;
-  max-width: 540px;
-  margin: 0 auto;
 }
-.carousel-track-wrapper {
+
+.carousel-wrapper {
+  width: 100%;
+  max-width: 420px;
   overflow: hidden;
-  border-radius: 16px;
-  box-shadow: var(--shadow-md);
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  background: var(--bg-light);
 }
+
 .carousel-track {
   display: flex;
   transition: transform 0.5s ease-in-out;
+  width: calc(100% * 7); /* Adjust if you use more/less slides */
 }
-.square {
+
+.carousel-box {
   min-width: 100%;
-  padding: 10px;
-}
-
-/* === Carousel Buttons === */
-.carousel-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: var(--primary-color);
-  color: #fff;
-  border: none;
-  font-size: 22px;
-  padding: 10px;
-  cursor: pointer;
-  z-index: 10;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  box-shadow: var(--shadow-sm);
-  transition: background 0.3s ease;
-}
-.carousel-button:hover {
-  background: var(--accent-color);
-}
-.carousel-button.prev { left: 12px; }
-.carousel-button.next { right: 12px; }
-
-/* === Grid Layouts === */
-.split-box,
-.three-box,
-.three-box-alt,
-.four-box {
-  display: grid;
-  background: var(--bg-light);
-  border: 1px solid #dce1eb;
-  border-radius: 14px;
-  overflow: hidden;
-  animation: slideUpFade 0.6s ease-out;
-}
-.split-box { grid-template-columns: repeat(2, 1fr); }
-.three-box { grid-template-columns: repeat(3, 1fr); }
-.three-box-alt {
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, auto);
-}
-.four-box {
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-}
-
-/* === Grid Items === */
-.left, .right, .third, .quad, .single-box {
-  background: #fdfdfd;
-  cursor: pointer;
-  transition: background 0.25s ease, transform 0.2s;
-}
-.left:hover, .right:hover, .third:hover, .quad:hover, .single-box:hover {
-  background-color: #f0f4fb;
-  transform: scale(1.02);
-}
-.left { border-right: 1px solid #e1e4ea; }
-.third, .quad {
-  border-bottom: 1px solid #e1e4ea;
-  border-right: 1px solid #e1e4ea;
-}
-.third:nth-child(3n), .quad:nth-child(2n) {
-  border-right: none;
-}
-.quad:nth-child(n+3) {
-  border-bottom: none;
-}
-
-/* === Images === */
-img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-  border-radius: 12px;
-  transition: transform 0.3s ease;
-}
-img:hover {
-  transform: scale(1.04);
-}
-
-/* === Modal === */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  inset: 0;
-  overflow-y: auto;
-  background: rgba(0, 0, 0, 0.65);
-  padding: 30px;
-}
-.modal-content {
-  background: #fff;
-  margin: auto;
-  padding: 40px 30px;
-  border-radius: 16px;
-  max-width: 800px;
-  width: 100%;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
-  position: relative;
-  animation: scaleFade 0.35s ease-out;
-}
-.close {
-  position: absolute;
-  top: 15px;
-  right: 25px;
-  font-size: 30px;
-  font-weight: bold;
-  color: #666;
-  cursor: pointer;
-}
-.close:hover {
-  color: #000;
-}
-
-/* === Sections: Gift & Race === */
-.gift-card-section,
-.race-calendar-section {
-  background: var(--bg-white);
-  padding: 60px 40px;
-  margin-top: 50px;
-  border-top: 4px solid var(--primary-color);
-  border-radius: 16px;
-  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.04);
-  text-align: center;
-}
-.gift-card-section h2,
-.race-calendar-section h2 {
-  font-size: 2.2rem;
-  color: #2b50a5;
-  margin-bottom: 20px;
-  border-bottom: 2px solid #ccc;
-  display: inline-block;
-  padding-bottom: 8px;
-}
-.gift-card-image,
-.race-calendar-image {
-  max-width: 340px;
-  width: 100%;
-  margin: 0 auto;
-  border-radius: 12px;
-  box-shadow: var(--shadow-sm);
-}
-
-/* === Search Field === */
-.race-calendar-section input[type="text"] {
-  width: 80%;
-  max-width: 520px;
-  margin-top: 24px;
-  padding: 16px 20px;
-  border-radius: 10px;
-  border: 1px solid #bbb;
-  font-size: 1rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  transition: border 0.2s;
-}
-.race-calendar-section input[type="text"]:focus {
-  border-color: var(--primary-color);
-  outline: none;
-}
-
-/* === Legend === */
-.legend {
+  height: 110px;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
   display: flex;
   justify-content: center;
-  gap: 24px;
-  margin-top: 25px;
-  flex-wrap: wrap;
-}
-.legend-item {
-  display: flex;
   align-items: center;
-  font-size: 0.95rem;
-  color: #444;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-.legend-item span {
-  width: 16px;
-  height: 16px;
-  display: inline-block;
-  margin-right: 8px;
-  border-radius: 3px;
-}
-.legend-today { background: var(--highlight-today); }
-.legend-weekend { background: var(--highlight-weekend); }
-.legend-weekday { background: var(--highlight-weekday); }
 
-/* === Swipe Hint (Mobile Only) === */
-.swipe-hint {
-  display: none;
-  text-align: center;
-  font-size: 1rem;
-  margin-top: 10px;
-  color: #666;
+.carousel-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
+
+.carousel-button {
+  background: var(--accent-color);
+  border: none;
+  color: #fff;
+  font-size: 1.6rem;
+  padding: 10px 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.carousel-button:hover {
+  background: #2a4fb0;
+  transform: scale(1.1);
+}
+/* =======================
+🧩 Split Modal
+======================= */
+.split-box-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 10, 0.75);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+}
+
+.split-box-modal.active {
+  display: flex;
+}
+
+.split-box-inner {
+  width: 90%;
+  max-width: 700px;
+  background: #fff;
+  border-radius: 16px;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.half {
+  width: 50%;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.left-half {
+  background: #f4f4f4;
+}
+
+.right-half {
+  background: #e4e4e4;
+}
+
+.divider {
+  width: 2px;
+  background: black;
+}
+
+/* =======================
+❌ Close Buttons
+======================= */
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  background: none;
+  color: white;
+  font-size: 2rem;
+  border: none;
+  cursor: pointer;
+}
+
+.close-btn.dark {
+  color: #333;
+  font-size: 1.5rem;
+  top: 12px;
+  right: 18px;
+}
+
+/* =======================
+📦 Side Modal
+======================= */
+.side-modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 15, 15, 0.85);
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.side-modal.active {
+  display: flex;
+}
+
+.side-modal-content {
+  background: white;
+  max-width: 400px;
+  width: 90%;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* =======================
+🧾 Shared Cards
+======================= */
+.section-card {
+  padding: 36px 28px;
+  background: var(--bg-white);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+}
+
+.section-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.1);
+}
+
+.section-card h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.section-card img {
+  max-width: 340px;
+  margin: 20px auto 0;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+/* =======================
+🖼️ Image Overrides
+======================= */
+.gift-card-image {
+  max-width: 260px;
+  margin: 20px auto 0;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+img.calendar-image {
+  max-width: 1000px;
+  margin: 20px auto 0;
+  display: block;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* =======================
+🎬 Animations
+======================= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* =======================
+📱 Responsive Styles
+======================= */
 @media (max-width: 768px) {
-  .swipe-hint.show {
-    display: block;
+  :root {
+    --section-spacing: var(--section-spacing-mobile);
   }
 
-  /* 🎯 Mobile Enhancements */
   .landing-container {
-    padding: 30px 20px;
-    gap: 32px;
+    padding: 30px 16px;
+    gap: var(--section-spacing);
+  }
+
+  .logo {
+    max-width: 140px;
   }
 
   .text-box h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 
   .text-box p {
     font-size: 1rem;
-    line-height: 1.7;
   }
 
-  .gift-card-section,
-  .race-calendar-section {
-    padding: 40px 20px;
+  .section-card {
+    padding: 28px 16px;
   }
 
-  .carousel-container {
+  .section-card img {
+    max-width: 90%;
+  }
+
+  .gift-card-image {
+    max-width: 220px;
+  }
+
+  img.calendar-image {
     max-width: 100%;
   }
 
-  .carousel-button {
-    width: 36px;
-    height: 36px;
-    font-size: 18px;
+  .split-box-inner {
+    flex-direction: column;
   }
 
-  .split-box,
-  .three-box,
-  .three-box-alt,
-  .four-box {
-    grid-template-columns: 1fr !important;
-    grid-template-rows: auto !important;
+  .half {
+    width: 100%;
   }
-}
 
-/* === Animations === */
-@keyframes scaleFade {
-  from { opacity: 0; transform: scale(0.96); }
-  to { opacity: 1; transform: scale(1); }
-}
-@keyframes slideUpFade {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
+  .divider {
+    height: 2px;
+    width: 100%;
+  }
 }
