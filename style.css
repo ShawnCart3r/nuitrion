@@ -139,41 +139,38 @@ img:hover {
 }
 
 .carousel-wrapper {
-  width: 100%;
-  max-width: 440px;
+  width: 280px;
   overflow: hidden;
-  border-radius: 16px;
+  border-radius: 20px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
   background: var(--bg-light);
 }
-
 .carousel-track {
   display: flex;
   transition: transform 0.5s ease-in-out;
-  width: calc(100% * 7); /* adjust as needed */
+  width: auto;
 }
-
 .carousel-box {
-  min-width: 100%;
-  height: 120px;
-  color: white;
-  font-weight: bold;
-  font-size: 1.1rem;
-  letter-spacing: 0.4px;
+  width: 280px;
+  height: 280px;
+  flex: 0 0 auto;
+  overflow: hidden;
+  border-radius: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 16px;
+  background: white;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
   cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  overflow: hidden;
 }
 
 .carousel-box img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
+
 
 .carousel-box:hover {
   transform: scale(1.04);
@@ -246,6 +243,8 @@ img:hover {
   width: 2px;
   background: #ccc;
 }
+/* Cont */
+
 
 /* ❌ Close Buttons */
 .close-btn {
@@ -295,6 +294,21 @@ img:hover {
   font-size: 1rem;
 }
 
+.third-modal .content {
+  display: flex;
+  gap: 20px; /* spacing between images */
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap; /* allows wrapping on smaller screens */
+}
+
+.third-modal .content img {
+  width: 200px;       /* make them larger */
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
 /* 📌 Third Modal */
 .third-modal {
   display: none;
@@ -438,5 +452,13 @@ img.calendar-image {
   .divider {
     height: 2px;
     width: 100%;
+  }
+  .third-modal .content {
+    flex-direction: column;
+  }
+
+  .third-modal .content img {
+    width: 100%;
+    max-width: 300px;
   }
 }

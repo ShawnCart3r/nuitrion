@@ -16,9 +16,11 @@ document.addEventListener("DOMContentLoaded", () => {
     updateCarousel();
   };
 
-  function updateCarousel(): void {
-    carouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
-  }
+ function updateCarousel(): void {
+  const boxWidth = 280; // width of one carousel-box
+  const offset = currentSlide * boxWidth;
+  carouselTrack.style.transform = `translateX(-${offset}px)`;
+}
 
   // === Open Split Modal ===
   (window as any).openSplitBox = (index: number): void => {

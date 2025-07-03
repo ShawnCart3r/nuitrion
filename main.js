@@ -14,7 +14,9 @@ document.addEventListener("DOMContentLoaded", function () {
         updateCarousel();
     };
     function updateCarousel() {
-        carouselTrack.style.transform = "translateX(-".concat(currentSlide * 100, "%)");
+        var boxWidth = 280; // width of one carousel-box
+        var offset = currentSlide * boxWidth;
+        carouselTrack.style.transform = "translateX(-".concat(offset, "px)");
     }
     // === Open Split Modal ===
     window.openSplitBox = function (index) {
