@@ -103,10 +103,32 @@ img:hover {
   max-width: 720px;
   margin: 0 auto;
 }
+:root {
+  --primary-color: #3b65c4;
+  --accent-color: #2d4fb2;
+  --bg-light: #f9fafe;
+  --text-dark: #1f2d3d;
+  --text-muted: #5a6574;
+}
 
-/* =======================
-🎠 Carousel: Single-Slide Slider
-======================= */
+/* 👆 Reminder Banner */
+.reminder-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #eef4ff, #dbe8ff);
+  color: var(--text-dark);
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 14px 24px;
+  border-radius: 12px;
+  margin: 0 auto 24px auto;
+  max-width: 640px;
+  text-align: center;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+}
+
+/* 🎠 Carousel */
 .carousel-nav-outer {
   display: flex;
   align-items: center;
@@ -114,43 +136,48 @@ img:hover {
   gap: 20px;
   max-width: 100%;
   margin: 0 auto 40px;
-  position: relative;
 }
 
 .carousel-wrapper {
   width: 100%;
-  max-width: 420px;
+  max-width: 440px;
   overflow: hidden;
-  border-radius: 14px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
   background: var(--bg-light);
 }
 
 .carousel-track {
   display: flex;
   transition: transform 0.5s ease-in-out;
-  width: calc(100% * 7); /* Adjust if you use more/less slides */
+  width: calc(100% * 7); /* adjust as needed */
 }
 
 .carousel-box {
   min-width: 100%;
-  height: 110px;
-  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  height: 120px;
   color: white;
-  font-weight: 600;
+  font-weight: bold;
   font-size: 1.1rem;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.4px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 12px;
+  border-radius: 16px;
   cursor: pointer;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+  overflow: hidden;
+}
+
+.carousel-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .carousel-box:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transform: scale(1.04);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.15);
 }
 
 .carousel-button {
@@ -166,20 +193,16 @@ img:hover {
 }
 
 .carousel-button:hover {
-  background: #2a4fb0;
-  transform: scale(1.1);
+  background: #2443a1;
+  transform: scale(1.12);
 }
-/* =======================
-🧩 Split Modal
-======================= */
+
+/* 🧩 Split Modal */
 .split-box-modal {
   display: none;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(10, 10, 10, 0.75);
+  inset: 0;
+  background: rgba(15, 15, 15, 0.75);
   z-index: 9999;
   justify-content: center;
   align-items: center;
@@ -197,66 +220,63 @@ img:hover {
   display: flex;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.25);
 }
 
 .half {
   width: 50%;
-  padding: 30px;
+  padding: 32px;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-weight: 600;
   cursor: pointer;
+  font-size: 1.1rem;
 }
 
 .left-half {
-  background: #f4f4f4;
+  background: #f7f9fc;
 }
 
 .right-half {
-  background: #e4e4e4;
+  background: #e9eef7;
 }
 
 .divider {
   width: 2px;
-  background: black;
+  background: #ccc;
 }
 
-/* =======================
-❌ Close Buttons
-======================= */
+/* ❌ Close Buttons */
 .close-btn {
   position: absolute;
-  top: 20px;
-  right: 30px;
+  top: 16px;
+  right: 24px;
   background: none;
-  color: white;
+  color: #fff;
   font-size: 2rem;
   border: none;
   cursor: pointer;
+  z-index: 1;
 }
 
 .close-btn.dark {
-  color: #333;
-  font-size: 1.5rem;
-  top: 12px;
-  right: 18px;
+  color: #222;
+  font-size: 1.4rem;
+  top: 14px;
+  right: 20px;
 }
 
-/* =======================
-📦 Side Modal
-======================= */
+/* 📦 Side Modal */
 .side-modal {
   display: none;
   position: fixed;
   z-index: 10000;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(15, 15, 15, 0.85);
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 24px;
 }
 
 .side-modal.active {
@@ -265,13 +285,43 @@ img:hover {
 
 .side-modal-content {
   background: white;
-  max-width: 400px;
-  width: 90%;
-  padding: 30px;
-  border-radius: 12px;
+  max-width: 440px;
+  width: 100%;
+  padding: 28px;
+  border-radius: 16px;
   text-align: center;
   position: relative;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+  font-size: 1rem;
+}
+
+/* 📌 Third Modal */
+.third-modal {
+  display: none;
+  position: fixed;
+  z-index: 10001;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 520px;
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.3);
+}
+
+.third-modal.active {
+  display: block;
+}
+
+.third-modal .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
 }
 
 /* =======================

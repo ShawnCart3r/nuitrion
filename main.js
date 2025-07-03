@@ -1,54 +1,63 @@
 document.addEventListener("DOMContentLoaded", function () {
-    var splitBox = document.getElementById("splitBox");
+    var carouselTrack = document.getElementById("carouselTrack");
     var sideModal = document.getElementById("sideModal");
     var sideModalText = document.getElementById("sideModalText");
-    var carouselTrack = document.getElementById("carouselTrack");
-    var currentSlide = 0;
     var totalSlides = 7;
-    // === Modal Logic ===
-    function openSplitBox(index) {
-        if (splitBox) {
-            splitBox.classList.add("active");
-        }
-    }
-    function closeSplitBox() {
-        if (splitBox) {
-            splitBox.classList.remove("active");
-        }
-    }
-    function openSideModal(side) {
-        if (sideModal && sideModalText) {
-            sideModalText.textContent =
-                side === "left"
-                    ? "You clicked the LEFT side. Insert your left-side content here."
-                    : "You clicked the RIGHT side. Insert your right-side content here.";
-            sideModal.classList.add("active");
-        }
-    }
-    function closeSideModal() {
-        if (sideModal) {
-            sideModal.classList.remove("active");
-        }
-    }
-    // === Carousel Logic ===
-    function updateCarousel() {
-        if (carouselTrack) {
-            carouselTrack.style.transform = "translateX(-".concat(currentSlide * 100, "%)");
-        }
-    }
-    function nextSlide() {
+    var currentSlide = 0;
+    // === Carousel Controls ===
+    window.nextSlide = function () {
         currentSlide = (currentSlide + 1) % totalSlides;
         updateCarousel();
-    }
-    function prevSlide() {
+    };
+    window.prevSlide = function () {
         currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
         updateCarousel();
+    };
+    function updateCarousel() {
+        carouselTrack.style.transform = "translateX(-".concat(currentSlide * 100, "%)");
     }
-    // === Expose globally for HTML inline onclicks ===
-    window.openSplitBox = openSplitBox;
-    window.closeSplitBox = closeSplitBox;
-    window.openSideModal = openSideModal;
-    window.closeSideModal = closeSideModal;
-    window.nextSlide = nextSlide;
-    window.prevSlide = prevSlide;
+    // === Open Split Modal ===
+    window.openSplitBox = function (index) {
+        var modal = document.getElementById("splitBox".concat(index));
+        if (modal)
+            modal.classList.add("active");
+    };
+    // === Close Split Modal ===
+    window.closeAllSplitBoxes = function () {
+        var modals = document.querySelectorAll(".split-box-modal");
+        modals.forEach(function (modal) {
+            modal.classList.remove("active");
+        });
+        // Also close third modals and side modal if needed
+        var thirdModals = document.querySelectorAll(".third-modal");
+        thirdModals.forEach(function (modal) {
+            modal.classList.remove("active");
+        });
+        var sideModal = document.getElementById("sideModal");
+        if (sideModal)
+            sideModal.classList.remove("active");
+    };
+    // === Open Side Modal + Launch 3rd Modal ===
+    window.openSideModal = function (side, index) {
+        if (sideModal && sideModalText) {
+            var label = side.toUpperCase();
+            sideModalText.textContent = "You selected: ".concat(label, " option in Box #").concat(index);
+            sideModal.classList.add("active");
+        }
+        var thirdModalId = "thirdModal-".concat(index, "-").concat(side);
+        var thirdModal = document.getElementById(thirdModalId);
+        if (thirdModal)
+            thirdModal.classList.add("active");
+    };
+    // === Close Side Modal ===
+    window.closeSideModal = function () {
+        if (sideModal)
+            sideModal.classList.remove("active");
+    };
+    // === Close Third-Level Modal ===
+    window.closeThirdModal = function (id) {
+        var modal = document.getElementById(id);
+        if (modal)
+            modal.classList.remove("active");
+    };
 });

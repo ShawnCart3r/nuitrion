@@ -1,63 +1,70 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const splitBox = document.getElementById("splitBox") as HTMLElement | null;
-  const sideModal = document.getElementById("sideModal") as HTMLElement | null;
-  const sideModalText = document.getElementById("sideModalText") as HTMLElement | null;
-  const carouselTrack = document.getElementById("carouselTrack") as HTMLElement | null;
-
-  let currentSlide = 0;
+  const carouselTrack = document.getElementById("carouselTrack") as HTMLElement;
+  const sideModal = document.getElementById("sideModal") as HTMLElement;
+  const sideModalText = document.getElementById("sideModalText") as HTMLElement;
   const totalSlides = 7;
+  let currentSlide = 0;
 
-  // === Modal Logic ===
-  function openSplitBox(index: number): void {
-    if (splitBox) {
-      splitBox.classList.add("active");
-    }
+  // === Carousel Controls ===
+  (window as any).nextSlide = (): void => {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    updateCarousel();
+  };
+
+  (window as any).prevSlide = (): void => {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    updateCarousel();
+  };
+
+  function updateCarousel(): void {
+    carouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
   }
 
-  function closeSplitBox(): void {
-    if (splitBox) {
-      splitBox.classList.remove("active");
-    }
-  }
+  // === Open Split Modal ===
+  (window as any).openSplitBox = (index: number): void => {
+    const modal = document.getElementById(`splitBox${index}`) as HTMLElement | null;
+    if (modal) modal.classList.add("active");
+  };
 
-  function openSideModal(side: "left" | "right"): void {
+  // === Close Split Modal ===
+  (window as any).closeAllSplitBoxes = (): void => {
+  const modals = document.querySelectorAll(".split-box-modal");
+  modals.forEach((modal) => {
+    (modal as HTMLElement).classList.remove("active");
+  });
+
+  // Also close third modals and side modal if needed
+  const thirdModals = document.querySelectorAll(".third-modal");
+  thirdModals.forEach((modal) => {
+    (modal as HTMLElement).classList.remove("active");
+  });
+
+  const sideModal = document.getElementById("sideModal");
+  if (sideModal) sideModal.classList.remove("active");
+};
+
+
+  // === Open Side Modal + Launch 3rd Modal ===
+  (window as any).openSideModal = (side: "left" | "right", index: number): void => {
     if (sideModal && sideModalText) {
-      sideModalText.textContent =
-        side === "left"
-          ? "You clicked the LEFT side. Insert your left-side content here."
-          : "You clicked the RIGHT side. Insert your right-side content here.";
+      const label = side.toUpperCase();
+      sideModalText.textContent = `You selected: ${label} option in Box #${index}`;
       sideModal.classList.add("active");
     }
-  }
 
-  function closeSideModal(): void {
-    if (sideModal) {
-      sideModal.classList.remove("active");
-    }
-  }
+    const thirdModalId = `thirdModal-${index}-${side}`;
+    const thirdModal = document.getElementById(thirdModalId) as HTMLElement | null;
+    if (thirdModal) thirdModal.classList.add("active");
+  };
 
-  // === Carousel Logic ===
-  function updateCarousel(): void {
-    if (carouselTrack) {
-      carouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
-    }
-  }
+  // === Close Side Modal ===
+  (window as any).closeSideModal = (): void => {
+    if (sideModal) sideModal.classList.remove("active");
+  };
 
- function nextSlide(): void {
-  currentSlide = (currentSlide + 1) % totalSlides;
-  updateCarousel();
-}
-
-function prevSlide(): void {
-  currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-  updateCarousel();
-}
-
-  // === Expose globally for HTML inline onclicks ===
-  (window as any).openSplitBox = openSplitBox;
-  (window as any).closeSplitBox = closeSplitBox;
-  (window as any).openSideModal = openSideModal;
-  (window as any).closeSideModal = closeSideModal;
-  (window as any).nextSlide = nextSlide;
-  (window as any).prevSlide = prevSlide;
+  // === Close Third-Level Modal ===
+  (window as any).closeThirdModal = (id: string): void => {
+    const modal = document.getElementById(id) as HTMLElement | null;
+    if (modal) modal.classList.remove("active");
+  };
 });
