@@ -63,3 +63,9 @@ document.addEventListener("DOMContentLoaded", function () {
             modal.classList.remove("active");
     };
 });
+function toggleDropdown(el) {
+    var content = el.nextElementSibling;
+    if (content) {
+        content.style.display = content.style.display === 'block' ? 'none' : 'block';
+    }
+}

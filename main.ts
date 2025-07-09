@@ -70,3 +70,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (modal) modal.classList.remove("active");
   };
 });
+
+function toggleDropdown(el: HTMLElement): void {
+  const content = el.nextElementSibling as HTMLElement | null;
+
+  if (content) {
+    content.style.display = content.style.display === 'block' ? 'none' : 'block';
+  }
+}
