@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const carouselTrack = document.getElementById("carouselTrack") as HTMLElement;
   const sideModal = document.getElementById("sideModal") as HTMLElement;
   const sideModalText = document.getElementById("sideModalText") as HTMLElement;
-  const totalSlides = 8;
+  const totalSlides = 9;
   let currentSlide = 0;
 
   // === Carousel Controls ===

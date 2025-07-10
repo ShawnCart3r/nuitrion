@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var carouselTrack = document.getElementById("carouselTrack");
     var sideModal = document.getElementById("sideModal");
     var sideModalText = document.getElementById("sideModalText");
-    var totalSlides = 8;
+    var totalSlides = 9;
     var currentSlide = 0;
     // === Carousel Controls ===
     window.nextSlide = function () {
