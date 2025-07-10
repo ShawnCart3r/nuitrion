@@ -36,7 +36,9 @@ body {
   line-height: 1.6;
   scroll-behavior: smooth;
 }
-
+a{
+  text-decoration: none;
+}
 /* =======================
 🖼️ Image Styling
 ======================= */
@@ -203,6 +205,7 @@ img:hover {
   z-index: 9999;
   justify-content: center;
   align-items: center;
+  padding: 16px; /* allow spacing on mobile */
 }
 
 .split-box-modal.active {
@@ -210,7 +213,7 @@ img:hover {
 }
 
 .split-box-inner {
-  width: 90%;
+  width: 100%;
   max-width: 700px;
   background: #fff;
   border-radius: 16px;
@@ -218,8 +221,10 @@ img:hover {
   position: relative;
   overflow: hidden;
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.25);
+  flex-direction: row;
 }
 
+/* Left and Right Panels */
 .half {
   width: 50%;
   padding: 32px;
@@ -229,6 +234,7 @@ img:hover {
   font-weight: 600;
   cursor: pointer;
   font-size: 1.1rem;
+  text-align: center;
 }
 
 .left-half {
@@ -243,10 +249,8 @@ img:hover {
   width: 2px;
   background: #ccc;
 }
-/* Cont */
 
-
-/* ❌ Close Buttons */
+/* Close Buttons */
 .close-btn {
   position: absolute;
   top: 16px;
@@ -265,7 +269,21 @@ img:hover {
   top: 14px;
   right: 20px;
 }
-
+.swipe{
+   display: none;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #eef4ff, #dbe8ff);
+  color: var(--text-dark);
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 14px 24px;
+  border-radius: 12px;
+  margin: 0 auto 24px auto;
+  max-width: 640px;
+  text-align: center;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+}
 /* 📦 Side Modal */
 .side-modal {
   display: none;
@@ -431,11 +449,11 @@ img.calendar-image {
 ======================= */
 @media (max-width: 768px) {
   :root {
-    --section-spacing: var(--section-spacing-mobile);
+    --section-spacing: 32px;
   }
 
   .landing-container {
-    padding: 30px 16px;
+    padding: 24px 16px;
     gap: var(--section-spacing);
   }
 
@@ -451,19 +469,52 @@ img.calendar-image {
     font-size: 1rem;
   }
 
+  .carousel-wrapper {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0 auto;
+  }
+
+  .carousel-track {
+    display: flex;
+    gap: 16px;
+    padding: 0 12px;
+    scroll-snap-type: x mandatory;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .carousel-box {
+    width: 85vw;
+    max-width: 340px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    flex: 0 0 auto;
+    margin: 0 auto;
+    scroll-snap-align: center;
+    border-radius: 18px;
+  }
+
+  .carousel-box img {
+      width: auto;
+    height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    display: block;
+    margin: auto;
+  }
+
+  .carousel-button {
+    font-size: 1.4rem;
+    padding: 8px 12px;
+  }
+
   .section-card {
-    padding: 28px 16px;
+    padding: 24px 16px;
   }
 
   .section-card img {
-    max-width: 90%;
-  }
-
-  .gift-card-image {
-    max-width: 220px;
-  }
-
-  img.calendar-image {
     max-width: 100%;
   }
 
@@ -479,12 +530,135 @@ img.calendar-image {
     height: 2px;
     width: 100%;
   }
-  .third-modal .content {
-    flex-direction: column;
+
+   .split-box-inner {
+    flex-direction: column; /* stack left/right vertically */
+    max-width: 95%;
+    width: 100%;
   }
 
-  .third-modal .content img {
+  .half {
     width: 100%;
-    max-width: 300px;
+    padding: 24px;
+    font-size: 1rem;
   }
+
+  .divider {
+    width: 100%;
+    height: 2px;
+  }
+
+  .close-btn.dark {
+    top: 10px;
+    right: 16px;
+    font-size: 1.5rem;
+  }
+
+  .side-modal-content {
+    max-width: 95%;
+    padding: 20px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .split-box-inner {
+    flex-direction: column; /* stack vertically */
+  }
+
+  .half {
+    width: 100%;
+    padding: 24px;
+    font-size: 1rem;
+  }
+
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: #ccc;
+  }
+}
+
+@media (max-width: 480px) {
+.carousel-wrapper {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  gap: 20px; /* optional for spacing between boxes */
+}
+
+.carousel-box {
+  width: 90vw;
+  max-width: 280px;
+  flex: 0 0 auto;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 0 10px; /* helps keep image centered with spacing */
+}
+  .carousel-box img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .carousel-button {
+    display: none; /* hide buttons on small screens if not swipeable */
+  }
+  .swipe {
+    display: block;
+  }
+
+   .split-box-inner {
+    flex-direction: column; /* stack left/right vertically */
+    max-width: 95%;
+    width: 100%;
+  }
+
+  .half {
+    width: 100%;
+    padding: 24px;
+    font-size: 1rem;
+  }
+
+  .divider {
+    width: 100%;
+    height: 2px;
+  }
+
+  .close-btn.dark {
+    top: 10px;
+    right: 16px;
+    font-size: 1.5rem;
+  }
+
+  .side-modal-content {
+    max-width: 95%;
+    padding: 20px;
+    font-size: 0.95rem;
+  }
+  
+ .section-wrapper.alt,
+  .section-card {
+    padding: 0 10px;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  .calendar-image {
+    display: block;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 10px auto 0 auto;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  }
+
 }

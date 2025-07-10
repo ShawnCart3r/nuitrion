@@ -29,37 +29,41 @@
 
   <div class="carousel-wrapper">
     <div class="carousel-track" id="carouselTrack">
-      <div class="carousel-box" style="background-color: red;" onclick="openSplitBox(1)">
+      <div class="carousel-box"  onclick="openSplitBox(1)">
         <img src="/image/birthday.webp" />
       </div>
-      <div class="carousel-box" style="background-color: yellow;" onclick="openSplitBox(2)">
-        <img src="/image/stinger-gel.jpeg" />
+      <div class="carousel-box"  onclick="openSplitBox(2)">
+        <img src="/image/honey-waffles.webp" />
       </div>
-      <div class="carousel-box" style="background-color: green;" onclick="openSplitBox(3)">
-        <img src="/image/vermont1.jpeg" />
+      <div class="carousel-box"  onclick="openSplitBox(3)">
+        <img src="/image/untapped.webp" />
       </div>
-      <div class="carousel-box" style="background-color: blue;" onclick="openSplitBox(4)">
-        <img src="/image/jelly.jpeg" />
+      <div class="carousel-box"  onclick="openSplitBox(4)">
+        <img src="/image/jelly.webp" />
       </div>
-      <div class="carousel-box" style="background-color: purple;" onclick="openSplitBox(5)">
-        <img src="/image/mortain1.jpeg" />
+      <div class="carousel-box"  onclick="openSplitBox(5)">
+        <img src="/image/maurten.webp" />
       </div>
-      <div class="carousel-box" style="background-color: black;" onclick="openSplitBox(6)">
-        <img src="/image/tailwind.jpeg" />
+      <div class="carousel-box"  onclick="openSplitBox(6)">
+        <img src="/image/tail.webp" />
       </div>
-      <div class="carousel-box" style="background-color: orange;" onclick="openSplitBox(7)">
-        <img src="/image/salttabs.jpeg" />
+      <div class="carousel-box" onclick="openSplitBox(7)">
+        <img src="/image/nuun.webp" />
+      </div>
+      <div class="carousel-box" onclick="openSplitBox(8)">
+        <img src="/image/salt.webp" />
       </div>
     </div>
   </div>
 
   <button class="carousel-button next" onclick="nextSlide()">&#10095;</button>
 </div>
+<div class="swipe">swipe to see options</div>
 
 <!-- 🔁 Split Modals <div class="divider"></div>
       <div class="half right-half" onclick="openSideModal('right', 1)">GU Gels</div>for each box -->
 <div id="splitModalsContainer">
- <!-- Modal 1 -->
+ <!-- Modal 1 Gu-->
 <div id="splitBox1" class="split-box-modal">
   <div class="split-box-inner">
 
@@ -131,14 +135,14 @@
   <button class="close-btn" onclick="closeAllSplitBoxes()">✕</button>
 </div>
 
-<!-- Modal 2 -->
+<!-- Modal 2 Honey-->
 <div id="splitBox2" class="split-box-modal">
  <div class="split-box-inner">
 
     <!-- Honey Gel -->
     <div class="half" style="width: 100%;">
-      <img src="image/birthday.webp" onclick="openSideModal('left', 1)">
-      <div class="dropdown-title" onclick="toggleDropdown(this)">🍬 GU Chews</div>
+      <img src="image/honey-gel.webp" onclick="openSideModal('left', 1)">
+      <div class="dropdown-title" onclick="toggleDropdown(this)">🍬 Honey Gels</div>
       <div class="dropdown-content">
         <ul class="flavor-list">
           <li>Strawberry</li>
@@ -151,8 +155,8 @@
 
     <!--Honey-waffles -->
     <div class="half" style="width: 100%;">
-      <img src="image/lime.webp" onclick="openSideModal('left', 1)">
-      <div class="dropdown-title" onclick="toggleDropdown(this)">🧃 GU Gels</div>
+      <img src="image/honey-waffles.webp" onclick="openSideModal('left', 1)">
+      <div class="dropdown-title" onclick="toggleDropdown(this)">🧃 Honey Stinger Waffles</div>
       <div class="dropdown-content">
         <ul class="flavor-list">
           <li>Salted Caramel</li>
@@ -168,14 +172,188 @@
   <button class="close-btn" onclick="closeAllSplitBoxes()">✕</button>
 </div>
 
-<!-- Modal 3 -->
+<!-- Modal 3 untapped-->
 <div id="splitBox3" class="split-box-modal">
   <div class="split-box-inner">
 
     <!-- Jelly -->
     <div class="half" style="width: 100%;">
-      <img src="image/birthday.webp" onclick="openSideModal('left', 1)">
-      <div class="dropdown-title" onclick="toggleDropdown(this)">🍬 GU Chews</div>
+      <img src="image/untapped gel.webp" onclick="openSideModal('left', 1)">
+      <div class="dropdown-title" onclick="toggleDropdown(this)">🍬 Untapped Gels</div>
+      <div class="dropdown-content">
+        <ul class="flavor-list">
+          <li>Strawberry</li>
+          <li>Blueberry Pomegranate</li>
+          <li>Watermelon</li>
+          <li>Orange</li>
+        </ul>
+      </div>
+    </div>
+<div class="half" style="width: 100%;">
+      <img src="image/untapped.webp" onclick="openSideModal('left', 1)">
+      <div class="dropdown-title" onclick="toggleDropdown(this)">🍬 Untapped Waffles</div>
+      <div class="dropdown-content">
+        <ul class="flavor-list">
+          <li>Strawberry</li>
+          <li>Blueberry Pomegranate</li>
+          <li>Watermelon</li>
+          <li>Orange</li>
+        </ul>
+      </div>
+    </div>
+    
+
+  </div>
+  <button class="close-btn" onclick="closeAllSplitBoxes()">✕</button>
+</div>
+
+<!-- Modal 4 jelly -->
+<div id="splitBox4" class="split-box-modal">
+ <div class="split-box-inner">
+
+    <!-- nuun -->
+    <div class="half" style="width: 100%;">
+      <img src="image/jelly.webp" onclick="openSideModal('left', 1)">
+      <div class="dropdown-title" onclick="toggleDropdown(this)">🍬 Jelly Belly Sports Bean</div>
+      <div class="dropdown-content">
+        <ul class="flavor-list">
+          <li>Strawberry</li>
+          <li>Blueberry Pomegranate</li>
+          <li>Watermelon</li>
+          <li>Orange</li>
+        </ul>
+      </div>
+    </div>
+
+
+   
+
+  </div>
+  <button class="close-btn" onclick="closeAllSplitBoxes()">✕</button>
+</div>
+
+<!-- Modal 5 Maurten-->
+<div id="splitBox5" class="split-box-modal">
+  <div class="split-box-inner">
+
+    <!-- mort gel 1 -->
+    <div class="half" style="width: 100%;">
+      <img src="image/maurten.webp" onclick="openSideModal('left', 1)">
+      <div class="dropdown-title" onclick="toggleDropdown(this)">🍬Maurten 20oz</div>
+      <div class="dropdown-content">
+        <ul class="flavor-list">
+          <li>Strawberry</li>
+          <li>Blueberry Pomegranate</li>
+          <li>Watermelon</li>
+          <li>Orange</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- morten gel 2   <div class="half" style="width: 100%;">
+      <img src="image/lime.webp" onclick="openSideModal('left', 1)">
+      <div class="dropdown-title" onclick="toggleDropdown(this)">🧃 Tailwind Recovery</div>
+      <div class="dropdown-content">
+        <ul class="flavor-list">
+          <li>Salted Caramel</li>
+          <li>Jet Blackberry</li>
+          <li>Vanilla Bean</li>
+          <li>Tri-Berry</li>
+        </ul>
+      </div>
+    </div>-->
+  
+
+    <!-- mortengels 3<div class="half" style="width: 100%;">
+      <img src="image/strawberry-roc.webp" onclick="openSideModal('left', 1)">
+      <div class="dropdown-title" onclick="toggleDropdown(this)">⚡ GU Roctane</div>
+      <div class="dropdown-content">
+        <ul class="flavor-list">
+          <li>Blueberry Pomegranate</li>
+          <li>Summit Tea</li>
+          <li>Sea Salt Chocolate</li>
+          <li>Chai Latte</li>
+        </ul>
+      </div>
+    </div> -->
+    
+
+  </div>
+  <button class="close-btn" onclick="closeAllSplitBoxes()">✕</button>
+</div>
+
+<!-- Modal 6 tailwin -->
+<div id="splitBox6" class="split-box-modal">
+ <div class="split-box-inner">
+
+    <!-- tail win mix -->
+    <div class="half" style="width: 100%;">
+      <img src="image/tailwind-drink.webp" onclick="openSideModal('left', 1)">
+      <div class="dropdown-title" onclick="toggleDropdown(this)">🍬 Tailwind Drink Mix</div>
+      <div class="dropdown-content">
+        <ul class="flavor-list">
+          <li>Strawberry</li>
+          <li>Blueberry Pomegranate</li>
+          <li>Watermelon</li>
+          <li>Orange</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- on tail wind recovery-->
+    <div class="half" style="width: 100%;">
+      <img src="image/tail.webp" onclick="openSideModal('left', 1)">
+      <div class="dropdown-title" onclick="toggleDropdown(this)">🧃 Tailwind recovery</div>
+      <div class="dropdown-content">
+        <ul class="flavor-list">
+          <li>Salted Caramel</li>
+          <li>Jet Blackberry</li>
+          <li>Vanilla Bean</li>
+          <li>Tri-Berry</li>
+        </ul>
+      </div>
+    </div>
+
+   
+
+  </div>
+  <button class="close-btn" onclick="closeAllSplitBoxes()">✕</button>
+</div>
+
+<!-- Modal 7 Nuun-->
+<div id="splitBox7" class="split-box-modal">
+  <div class="split-box-inner">
+
+    <!-- Nuun -->
+    <div class="half" style="width: 100%;">
+      <img src="image/nuun.webp" onclick="openSideModal('left', 1)">
+      <div class="dropdown-title" onclick="toggleDropdown(this)">🍬Nuun</div>
+      <div class="dropdown-content">
+        <ul class="flavor-list">
+          <li>Strawberry</li>
+          <li>Blueberry Pomegranate</li>
+          <li>Watermelon</li>
+          <li>Orange</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- tailwind cocaine large bags -->
+   
+  
+
+  </div>
+  <button class="close-btn" onclick="closeAllSplitBoxes()">✕</button>
+</div>
+
+<!-- Modal 8 Salt -->
+<div id="splitBox8" class="split-box-modal">
+  <div class="split-box-inner">
+
+    <!-- Salt -->
+    <div class="half" style="width: 100%;">
+      <img src="image/salt.webp" onclick="openSideModal('left', 1)">
+      <div class="dropdown-title" onclick="toggleDropdown(this)">🍬 Salt</div>
       <div class="dropdown-content">
         <ul class="flavor-list">
           <li>Strawberry</li>
@@ -192,180 +370,6 @@
   <button class="close-btn" onclick="closeAllSplitBoxes()">✕</button>
 </div>
 
-<!-- Modal 4 -->
-<div id="splitBox4" class="split-box-modal">
- <div class="split-box-inner">
-
-    <!-- nuun -->
-    <div class="half" style="width: 100%;">
-      <img src="image/birthday.webp" onclick="openSideModal('left', 1)">
-      <div class="dropdown-title" onclick="toggleDropdown(this)">🍬 GU Chews</div>
-      <div class="dropdown-content">
-        <ul class="flavor-list">
-          <li>Strawberry</li>
-          <li>Blueberry Pomegranate</li>
-          <li>Watermelon</li>
-          <li>Orange</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- GU Gels -->
-   
-
-  </div>
-  <button class="close-btn" onclick="closeAllSplitBoxes()">✕</button>
-</div>
-
-<!-- Modal 5 -->
-<div id="splitBox5" class="split-box-modal">
-  <div class="split-box-inner">
-
-    <!-- mort gel 1 -->
-    <div class="half" style="width: 100%;">
-      <img src="image/birthday.webp" onclick="openSideModal('left', 1)">
-      <div class="dropdown-title" onclick="toggleDropdown(this)">🍬 GU Chews</div>
-      <div class="dropdown-content">
-        <ul class="flavor-list">
-          <li>Strawberry</li>
-          <li>Blueberry Pomegranate</li>
-          <li>Watermelon</li>
-          <li>Orange</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- morten gel 2 -->
-    <div class="half" style="width: 100%;">
-      <img src="image/lime.webp" onclick="openSideModal('left', 1)">
-      <div class="dropdown-title" onclick="toggleDropdown(this)">🧃 GU Gels</div>
-      <div class="dropdown-content">
-        <ul class="flavor-list">
-          <li>Salted Caramel</li>
-          <li>Jet Blackberry</li>
-          <li>Vanilla Bean</li>
-          <li>Tri-Berry</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- mortengels 3 -->
-    <div class="half" style="width: 100%;">
-      <img src="image/strawberry-roc.webp" onclick="openSideModal('left', 1)">
-      <div class="dropdown-title" onclick="toggleDropdown(this)">⚡ GU Roctane</div>
-      <div class="dropdown-content">
-        <ul class="flavor-list">
-          <li>Blueberry Pomegranate</li>
-          <li>Summit Tea</li>
-          <li>Sea Salt Chocolate</li>
-          <li>Chai Latte</li>
-        </ul>
-      </div>
-    </div>
-
-  </div>
-  <button class="close-btn" onclick="closeAllSplitBoxes()">✕</button>
-</div>
-
-<!-- Modal 6 -->
-<div id="splitBox6" class="split-box-modal">
- <div class="split-box-inner">
-
-    <!-- on tap-gels -->
-    <div class="half" style="width: 100%;">
-      <img src="image/birthday.webp" onclick="openSideModal('left', 1)">
-      <div class="dropdown-title" onclick="toggleDropdown(this)">🍬 GU Chews</div>
-      <div class="dropdown-content">
-        <ul class="flavor-list">
-          <li>Strawberry</li>
-          <li>Blueberry Pomegranate</li>
-          <li>Watermelon</li>
-          <li>Orange</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- on tap waffles-->
-    <div class="half" style="width: 100%;">
-      <img src="image/lime.webp" onclick="openSideModal('left', 1)">
-      <div class="dropdown-title" onclick="toggleDropdown(this)">🧃 GU Gels</div>
-      <div class="dropdown-content">
-        <ul class="flavor-list">
-          <li>Salted Caramel</li>
-          <li>Jet Blackberry</li>
-          <li>Vanilla Bean</li>
-          <li>Tri-Berry</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- on tap jugs -->
-    <div class="half" style="width: 100%;">
-      <img src="image/strawberry-roc.webp" onclick="openSideModal('left', 1)">
-      <div class="dropdown-title" onclick="toggleDropdown(this)">⚡ GU Roctane</div>
-      <div class="dropdown-content">
-        <ul class="flavor-list">
-          <li>Blueberry Pomegranate</li>
-          <li>Summit Tea</li>
-          <li>Sea Salt Chocolate</li>
-          <li>Chai Latte</li>
-        </ul>
-      </div>
-    </div>
-
-  </div>
-  <button class="close-btn" onclick="closeAllSplitBoxes()">✕</button>
-</div>
-
-<!-- Modal 7 -->
-<div id="splitBox7" class="split-box-modal">
-  <div class="split-box-inner">
-
-    <!-- tailwin pacts -->
-    <div class="half" style="width: 100%;">
-      <img src="image/birthday.webp" onclick="openSideModal('left', 1)">
-      <div class="dropdown-title" onclick="toggleDropdown(this)">🍬 GU Chews</div>
-      <div class="dropdown-content">
-        <ul class="flavor-list">
-          <li>Strawberry</li>
-          <li>Blueberry Pomegranate</li>
-          <li>Watermelon</li>
-          <li>Orange</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- tailwind cocaine large bags -->
-    <div class="half" style="width: 100%;">
-      <img src="image/lime.webp" onclick="openSideModal('left', 1)">
-      <div class="dropdown-title" onclick="toggleDropdown(this)">🧃 GU Gels</div>
-      <div class="dropdown-content">
-        <ul class="flavor-list">
-          <li>Salted Caramel</li>
-          <li>Jet Blackberry</li>
-          <li>Vanilla Bean</li>
-          <li>Tri-Berry</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- GU Roctane -->
-    <div class="half" style="width: 100%;">
-      <img src="image/strawberry-roc.webp" onclick="openSideModal('left', 1)">
-      <div class="dropdown-title" onclick="toggleDropdown(this)">⚡ GU Roctane</div>
-      <div class="dropdown-content">
-        <ul class="flavor-list">
-          <li>Blueberry Pomegranate</li>
-          <li>Summit Tea</li>
-          <li>Sea Salt Chocolate</li>
-          <li>Chai Latte</li>
-        </ul>
-      </div>
-    </div>
-
-  </div>
-  <button class="close-btn" onclick="closeAllSplitBoxes()">✕</button>
-</div>
 
 </div>
 
@@ -374,7 +378,7 @@
 <!--Calendar-->
 <div class="section-wrapper alt">
   <div class="section-card">
-    <h2>Race Calendar</h2>
+   <h2> <a href="https://racecalender.netlify.app/"  target="_blank"> Race Calendar</a></h2>
    <a href="https://racecalender.netlify.app/" target="_blank"><img src="/image/race-tracker.png" alt="Race Calendar" class="calendar-image" /></a>
   </div>
 </div>

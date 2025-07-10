@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const carouselTrack = document.getElementById("carouselTrack") as HTMLElement;
   const sideModal = document.getElementById("sideModal") as HTMLElement;
   const sideModalText = document.getElementById("sideModalText") as HTMLElement;
-  const totalSlides = 7;
+  const totalSlides = 8;
   let currentSlide = 0;
 
   // === Carousel Controls ===
@@ -16,8 +16,9 @@ document.addEventListener("DOMContentLoaded", () => {
     updateCarousel();
   };
 
- function updateCarousel(): void {
-  const boxWidth = 280; // width of one carousel-box
+function updateCarousel(): void {
+  const box = document.querySelector(".carousel-box") as HTMLElement;
+  const boxWidth = box?.offsetWidth || 280;
   const offset = currentSlide * boxWidth;
   carouselTrack.style.transform = `translateX(-${offset}px)`;
 }

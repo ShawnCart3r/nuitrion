@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var carouselTrack = document.getElementById("carouselTrack");
     var sideModal = document.getElementById("sideModal");
     var sideModalText = document.getElementById("sideModalText");
-    var totalSlides = 7;
+    var totalSlides = 8;
     var currentSlide = 0;
     // === Carousel Controls ===
     window.nextSlide = function () {
@@ -14,7 +14,8 @@ document.addEventListener("DOMContentLoaded", function () {
         updateCarousel();
     };
     function updateCarousel() {
-        var boxWidth = 280; // width of one carousel-box
+        var box = document.querySelector(".carousel-box");
+        var boxWidth = (box === null || box === void 0 ? void 0 : box.offsetWidth) || 280;
         var offset = currentSlide * boxWidth;
         carouselTrack.style.transform = "translateX(-".concat(offset, "px)");
     }
